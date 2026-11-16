@@ -12,6 +12,7 @@ Mapeie o site, meça, corrija, publique com segurança e acompanhe o resultado, 
 ![Conteúdo](https://img.shields.io/badge/conte%C3%BAdo-Markdown%20%2B%201%20imagem-22A068)
 ![Scripts](https://img.shields.io/badge/scripts%20execut%C3%A1veis-nenhum-22A068)
 ![Idioma](https://img.shields.io/badge/idioma-pt--BR-1d6ad2)
+[![skills.sh](https://skills.sh/b/Provadelli/seo-pro-max)](https://skills.sh/Provadelli/seo-pro-max)
 
 </div>
 
@@ -126,6 +127,20 @@ seo-pro-max/
 O `SKILL.md` é curto de propósito: o Claude abre só a referência que a tarefa pede.
 
 ## Instalação
+
+### Pelo skills.sh (recomendado)
+
+A skill está no diretório [skills.sh](https://skills.sh/Provadelli/seo-pro-max). Com o Node.js instalado, rode:
+
+```bash
+npx skills add Provadelli/seo-pro-max
+```
+
+O comando usa a ferramenta oficial `skills` (Vercel, código aberto em [vercel-labs/skills](https://github.com/vercel-labs/skills)). Ela baixa a skill **deste repositório** e copia os arquivos para a pasta de skills do seu agente. A skill continua sendo só texto; nada dela é executado.
+
+> **Privacidade:** a ferramenta `skills` envia dados anônimos de uso, que alimentam o ranking do skills.sh. Para desligar, defina `DISABLE_TELEMETRY=1` ou `DO_NOT_TRACK=1` antes do comando.
+
+Depois de instalar, confira a integridade com as impressões digitais do [`SECURITY.md`](SECURITY.md).
 
 ### Claude Code (computador)
 
