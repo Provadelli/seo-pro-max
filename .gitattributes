@@ -1,0 +1,3 @@
+# Mantém os arquivos byte a byte idênticos em qualquer sistema,
+# para que as impressões digitais SHA-256 do SECURITY.md sempre confiram.
+* -text
