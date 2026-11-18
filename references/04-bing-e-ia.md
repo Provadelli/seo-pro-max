@@ -20,6 +20,33 @@
 
 Pegadinha do robots.txt: o snippet precisa rodar **depois** do plugin de SEO (prioridade alta no filtro `robots_txt`), senão surge um grupo `User-agent` duplicado.
 
+## Markdown sob demanda para agentes (Accept: text/markdown)
+Ideia: quando um agente de IA pede a página com o cabeçalho `Accept: text/markdown`, o site responde a mesma página em Markdown, com `Content-Type: text/markdown`, `Vary: Accept` e `X-Robots-Tag: noindex`. Visitantes e buscadores continuam recebendo o HTML normal.
+
+O ponto que engana: **o cache de página responde antes do PHP.** O snippet sozinho parece não funcionar, porque o pedido nem chega ao WordPress. A solução tem duas camadas, e as duas são necessárias:
+
+1. **Regra no servidor** que desliga o cache só para pedidos com `text/markdown` no `Accept`. Vai no topo do `.htaccess`, **fora** dos blocos que o plugin de cache gerencia (eles são reescritos). Exemplo ilustrativo para LiteSpeed:
+```
+# BEGIN MarkdownAgentes
+<IfModule LiteSpeed>
+RewriteEngine On
+RewriteCond %{HTTP:Accept} text/markdown [NC]
+RewriteRule .* - [E=Cache-Control:no-cache]
+</IfModule>
+# END MarkdownAgentes
+```
+2. **Aviso no código da resposta** para o cache não guardá-la: o snippet deve enviar `X-LiteSpeed-Cache-Control: no-cache` (e acionar o filtro de "não cachear" do plugin). Sem isso, a primeira resposta em Markdown é armazenada e **entregue a visitantes comuns**. Isso aconteceu em teste e só foi desfeito com a limpeza total do cache.
+
+Procedimento seguro (com aprovação humana a cada passo):
+- Faça backup do `.htaccess` no próprio servidor antes de mexer e confira que a cópia é idêntica.
+- Aplique primeiro a camada 2 (inofensiva, pois hoje nenhum pedido Markdown chega ao PHP) e só depois a regra.
+- Teste **sem login** (navegador logado ignora o cache e engana o teste), por exemplo com `curl`:
+  - com `Accept: text/markdown`: deve vir `text/markdown` e nenhum `hit` de cache;
+  - sem o cabeçalho, duas vezes seguidas: deve vir `text/html` e `hit` na segunda;
+  - repita em várias páginas (início, institucional, serviço, blog).
+- Tenha a reversão pronta: restaurar o backup e usar "Limpar tudo" do plugin de cache. Confira de novo que o HTML voltou.
+- Valor real baixo: serve a pontuação de "preparo para IA" e a leitura limpa por agentes. Faça depois do que mexe com busca e reputação.
+
 ## Robôs de IA
 - Confira no painel da hospedagem se robôs como GPTBot, ClaudeBot, PerplexityBot e OAI-SearchBot estão liberados.
 - Testes com user-agent falso a partir de IP comum recebem 403 ou 429 por proteção contra robôs falsos. **Não é bloqueio real.**

@@ -40,7 +40,7 @@ O comando `npx skills add Provadelli/seo-pro-max` usa a ferramenta oficial e de 
 
 ## 5. Sobre os trechos de código nas referências
 
-Alguns arquivos mostram pequenos exemplos (por exemplo, como salvar título no editor do WordPress ou uma linha de `robots.txt`). Eles:
+Alguns arquivos mostram pequenos exemplos (por exemplo, como salvar título no editor do WordPress, uma linha de `robots.txt`, uma regra de `.htaccess` ou um teste com `curl` no site da própria pessoa). Eles:
 
 - servem para explicar o procedimento;
 - não rodam automaticamente;
@@ -60,12 +60,12 @@ Estes são **todos** os arquivos do repositório (além deste `SECURITY.md`). Qu
 | `references/01-mapa-do-projeto.md` | `6350544b998b811fd4e58cd8e7ee90158ae9f9b8de9ae005c9257ad91773520e` |
 | `references/02-tecnico-wordpress.md` | `a65869a6b8b6ce26d6da3c9df010aea8ef629e5511fc51d15f5bed3342a4394f` |
 | `references/03-google.md` | `6fd3e0777ffa59ec940fcaa1deb2623a1c74a89388a670bf4fd231fd0c2ff251` |
-| `references/04-bing-e-ia.md` | `81e3d22a098b7455ad60cbaa7f498dfe97b03cd05d01f655913b3bfb3645dd82` |
+| `references/04-bing-e-ia.md` | `5d5f76786ca96616846c7df78c0ffd98c30af9a1c16ae55c9f79f53230561e3a` |
 | `references/05-conteudo.md` | `221c5ea8d6f71088866891ea0b0c7a7d773965716a2eb432917c5a3746568a1e` |
 | `references/06-presenca-externa.md` | `aea593fe1e836e5f65fedab6c73d3fcba9ab4787a10a0c45647f6299a2f57f8c` |
 | `references/07-lgpd.md` | `a391e6b4ffe73c90c29e1f540febbe1d45e196393428a2ebe4bc6f6ce59697d0` |
-| `references/08-medicao-e-relatorios.md` | `5e1bc58cbb82c327fbf8c5b57e1c7be8eaad38fc2982bb13128c137a161b285e` |
-| `SKILL.md` | `60dec3dd001bcb4d8707c232b9865ef9e0e2ce870ef9e7e5eff831b1f3367208` |
+| `references/08-medicao-e-relatorios.md` | `8ce64f2cf12c0861102ef770f3b0c2f45fbe18201140bde0a7e9b39f718d5b39` |
+| `SKILL.md` | `1c77cf3f00e32e8bf46821a6173e951912840cfd8a36bc138404008f2ba2b73c` |
 
 O `.gitattributes` impede que o Git converta fins de linha, então as impressões digitais conferem tanto no clone quanto no ZIP, em qualquer sistema.
 

@@ -84,3 +84,6 @@ Não é preciso fazer tudo de uma vez. Comece pela Fase 0 e escolha a fase com m
 - **Acentos via fetch** podem vir como entidades HTML; compare com `innerText`.
 - **Proteção de robôs da hospedagem**: testes com user-agent falso (Googlebot, GPTBot) a partir de IP comum recebem 403 ou 429. Isso não significa que o robô real esteja bloqueado; confira no painel da hospedagem.
 - **Lighthouse local** distorce o TBT; use pagespeed.web.dev.
+- **Teste de cache sem login.** Navegador logado como administrador ignora o cache de página e engana o teste. Use `curl` ou janela anônima e olhe o cabeçalho de cache (`hit` ou `miss`).
+- **Resposta alternativa (por exemplo Markdown) pode ser guardada pelo cache** e entregue a visitantes comuns. Avise o cache de não armazenar e tenha backup e reversão prontos (ver `references/04-bing-e-ia.md`).
+- **Editar `.htaccess`**: faça backup no servidor, ponha regras próprias fora dos blocos gerenciados por plugins e confira que o site e o `robots.txt` seguem respondendo 200 logo depois.
